@@ -40,11 +40,31 @@
 <!-- body -->
 <body class="main-layout">
 
-    <div>
-        <header>
-            <span>Please log in</span>
-        </header>
+<!--- nav bar code -->
+
+<div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a class="active" href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+    <div class="right_bottun">
+        <a class="login" href="#">Login</a>
+        <button class="openbtn" onclick="openNav()">
+            <img alt="" class="d-inline-block align-center"
+                 src=""
+                 th:src="@{/images/menu_icon.png}"
+                 height="400px"
+                 width="auto">
+        </button>
     </div>
+</div>
+
+<!--- end nav bar code -->
 
     <div>
 
@@ -76,6 +96,24 @@
 
 
 </body>
+
+<!-- Javascript files-->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+    }
+</script>
 
 </html>
 

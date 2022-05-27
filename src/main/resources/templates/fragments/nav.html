@@ -3,11 +3,36 @@
 <th:block xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:fragment="header">
     <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="active" href="index.html">Home</a>
+        <a class="active" href="/">Home</a>
         <a href="about.html">About</a>
         <a href="classes.html">Classes</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="contact.html">Contact</a>
     </div>
+
+    <button class="openbtn" onclick="openNav()">
+        <img alt="" class="d-inline-block align-center"
+             src=""
+             th:src="@{/images/menu_icon.png}"
+             height="400px"
+             width="auto">
+    </button>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
 
 </th:block>
