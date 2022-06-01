@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+<!--<html lang="en" dir="ltr">-->
+<div layout:fragment="head" th:remove="tag">
+    <meta charset="utf-8">
+    <title>Star Rating Form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/scss/style.css}">
+    <link rel="stylesheet" th:href="@{/scss/all.min.css}">
+</div>
+
+<div layout:fragment="body" th:remove="tag">
+<div>
+<div class="container">
+    <div class="post" id="postthanks">
+        <div class="text">Thanks for rating us!</div>
+        <div class="edit" id="editbtn">EDIT</div>
+    </div>
+    <div class="star-widget" id="mystars">
+        <input type="radio" name="rate" id="rate-5">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1">
+        <label for="rate-1" class="fas fa-star"></label>
+        <form action="#">
+            <header></header>
+            <div class="textarea">
+                <textarea cols="30" placeholder="Please share your thoughts"></textarea>
+            </div>
+            <div class="btn">
+                <button type="submit" id="postbtn">Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+    <script>
+        const postthanks = document.getElementById("postthanks");
+        const postbtn = document.getElementById("postbtn");
+        const mystars = document.getElementById("mystars");
+        const editBtn = document.getElementById("editbtn");
+
+        postthanks.style.display = "none";
+        mystars.style.display = "block";
+
+        postbtn.onclick = ()=>{
+            postthanks.style.display = "block";
+            mystars.style.display = "none";
+            editBtn.onclick = ()=>{
+                mystars.style.display = "block";
+                postthanks.style.display = "none";
+            }
+            return false;
+        }
+    </script>
+</div>
+</html>
