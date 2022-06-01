@@ -45,7 +45,7 @@
 
                         <td><div><a th:href="${notes.link}">Notes</a></div></td>
 
-<!--                        <div sec:authorize="hasRole('ROLE_ADMIN')"><td> <a th:href="@{/database/delete/{id}(id = ${chapter.id})}" >Delete</a></td></div>&ndash;&gt;-->
+                        <div sec:authorize="hasRole('ROLE_ADMIN')"><td> <a th:href="@{/database/notesdelete/{id}?chapter={chid}(id = ${notes.id}, chid=${chapterId})}" >Delete</a></td></div>
 
                     </tr>
                     </tbody>

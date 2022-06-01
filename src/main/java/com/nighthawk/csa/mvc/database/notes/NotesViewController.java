@@ -77,11 +77,11 @@ public class NotesViewController {
 //
 
 //
-//    @GetMapping("/database/notesdelete/{id}")
-//    public String notesDelete(@PathVariable("id") long id) {
-//        repository.deleteNotes(id);
-//        return "redirect:/notes";
-//    }
+    @GetMapping("/database/notesdelete/{id}")
+    public String notesDelete(@PathVariable("id") long id, @RequestParam("chapter") long chid) {
+        repository.deleteNotes(id);
+        return "redirect:/notes?id=" + chid;
+    }
 
 
 
