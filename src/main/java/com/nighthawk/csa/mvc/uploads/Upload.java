@@ -1,4 +1,4 @@
-package com.nighthawk.csa.mvc.upload;
+package com.nighthawk.csa.mvc.uploads;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

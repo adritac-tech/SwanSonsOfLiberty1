@@ -1,7 +1,7 @@
 package com.nighthawk.csa.mvc.database.notes;
 
 import com.nighthawk.csa.mvc.database.ModelRepository;
-import com.nighthawk.csa.mvc.upload.Upload;
+import com.nighthawk.csa.mvc.uploads.Upload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
