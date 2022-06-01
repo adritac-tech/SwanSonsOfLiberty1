@@ -1,15 +1,25 @@
 package com.nighthawk.csa.mvc.database.notes;
 
 import com.nighthawk.csa.mvc.database.ModelRepository;
+import com.nighthawk.csa.mvc.upload.Upload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 
 // Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
@@ -20,8 +30,11 @@ public class NotesViewController {
     private ModelRepository repository;
 
     @GetMapping("/notes")
-    public String notes(@RequestParam("id") long id, Model model) {
-        List<Notes> list = repository.listAllNotesWithId(id);
+    public String notes(@RequestParam(name = "id", defaultValue = "-1") long id, Model model) {
+        if (id == -1) {
+			return "/notes_none";
+		}
+		List<Notes> list = repository.listAllNotesWithId(id);
         model.addAttribute("listNotes", list);
         model.addAttribute("chapterId", id);
         return "/notes";
@@ -34,8 +47,44 @@ public class NotesViewController {
     }
 
     @PostMapping("/addnote")
-    public String addNoteSubmit(@ModelAttribute Notes note, RedirectAttributes redirectAttributes){
-        redirectAttributes.addAttribute("id", note.getChapterId());
+    public String addNoteSubmit(@ModelAttribute Notes note, @RequestParam("file") MultipartFile formFile, @RequestParam("type") String type, RedirectAttributes redirectAttributes){		
+		if (type.equals("file")) {
+			String filePath = "uploads/";       // thus, uploads defined outside of static
+			String webPath = "/" + filePath;    // webPath
+
+			// try/catch is in place, but error handling is not implemented (returns without alerts)
+			try {
+				// Creating the directory to store file
+				File dir = new File( filePath );
+				if (!dir.exists())
+					dir.mkdirs();
+
+				// Create the file on server
+				byte[] bytes = formFile.getBytes();
+
+				// File write alternatives (going with Stream for now as in theory it would be non-blocking)
+				if (false) {
+					Path path = Paths.get(filePath + formFile.getOriginalFilename());
+					Files.write(path, bytes);
+				} else {
+					String path = filePath + formFile.getOriginalFilename();
+					File serverFile = new File( path );
+					BufferedOutputStream stream = new BufferedOutputStream(
+							new FileOutputStream(serverFile));
+					stream.write(bytes);
+					stream.close();
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();        // app stays alive, errors go to run console, /var/log/syslog
+			}
+
+			note.setLink(filePath + formFile.getOriginalFilename());
+		}
+		
+		redirectAttributes.addAttribute("id", note.getChapterId());
+
+		
         repository.saveNotes(note);
         return "redirect:/notes";
     }

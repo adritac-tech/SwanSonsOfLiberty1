@@ -53,6 +53,9 @@ public class Notes {
         this.link = link;
         this.chapterId = chapterId;
     }
-
+	
+	public void setLink(String link) {
+		this.link = link;
+	}
 
 }
