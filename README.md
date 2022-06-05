@@ -7,7 +7,7 @@
 ## Purpose: 
 * allow all APUSH students to access every student's tutorial notes
 * login authentication so students have to be present during the actual tutorial 
-* allows Mr. Swanson to see who attends tutorial and award participation points
+* allows Mr. Swanson to see who attends tutorial and award participation points 
 
 ## Features
 * Database with uploaded tutorial notes (multiple tables with notes from each chapter)
