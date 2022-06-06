@@ -15,35 +15,30 @@
 <div layout:fragment="body" th:remove="tag">
 
     <div class="container py-4">
-        <header class="pb-3 mb-4 border-bottom border-primary text-dark">
-            <span class="fs-4">Please log in to see notes</span>
+        <header class="pb-0 text-light">
+            <span class="fs-4">PLEASE LOG IN TO SEE NOTES</span>
         </header>
     </div>
 
-    <div class="container py-4 text-light bg-success">
+    <div class="container py-4 text-light bg-secondary">
+        <form name="f" th:action="@{/login}" method="POST">
+            <table>
+                <tr th:if="${param.error}" class="alert alert-error">
+                    Invalid password.
+                </tr>
+                <tr th:if="${param.logout}" class="alert alert-success">
+                    You have been logged out.
+                </tr>
+                <!-- 'email' is mapped to 'username' for Spring Security -->
+                <tr><th><label for="username">EMAIL</label></th></tr>
+                <tr><td><input type="email" id='username' name="username" size="20" required></td></tr>
+                <tr><th><label for="password">PASSWORD</label></th></tr>
+                <tr><td><input type="password" id="password" name="password" size="20" required></td></tr>
+                <tr><th><input type="submit" value="SUBMIT" class="text-light btn"></th></tr>
+                <tr><td><a th:href="@{/database/personcreate}">SIGN UP</a></td></tr>
 
-        <div class="container bg-secondary py-4">
-            <div class="p-5 mb-4 bg-light text-dark rounded-3">
-                <form name="f" th:action="@{/login}" method="POST">
-                    <table>
-                        <tr th:if="${param.error}" class="alert alert-error">
-                            Invalid password.
-                        </tr>
-                        <tr th:if="${param.logout}" class="alert alert-success">
-                            You have been logged out.
-                        </tr>
-                        <!-- 'email' is mapped to 'username' for Spring Security -->
-                        <tr><th><label for="username">Email</label></th></tr>
-                        <tr><td><input type="email" id='username' name="username" size="20" required></td></tr>
-                        <tr><th><label for="password">Password</label></th></tr>
-                        <tr><td><input type="password" id="password" name="password" size="20" required></td></tr>
-                        <tr><th><input type="submit" value="Submit"></th></tr>
-                        <tr><td><a th:href="@{/database/personcreate}">Sign Up</a></td></tr>
-
-                    </table>
-                </form>
-            </div>
-        </div>
+            </table>
+        </form>
 
     </div>
 
