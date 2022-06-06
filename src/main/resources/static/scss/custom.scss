@@ -42,9 +42,9 @@ $theme-colors: (
 */
 
 // redefine colors
-$primary: #a1a9bd;
-$secondary: #5B9D82;
-$body-bg: #cfd8dc;
+$primary: #a8d0e6;
+$secondary: #24305e;
+$body-bg: #f76c6c;
 
 // redefine body background
 @import "../../../../../node_modules/bootstrap/scss/bootstrap";
@@ -60,9 +60,9 @@ html, body {
   $enable-gradients: true;
 
   /* redefine theme colors */
-  $primary: #5c7ba8;
-  $secondary: $green-600;
-  $body-bg: #455a64;
+  $primary: #a8d0e6;
+  $secondary: #24305e;
+  $body-bg: #f76c6c;
   /* set background values */
   --#{$variable-prefix}body-bg: #{$body-bg};
 

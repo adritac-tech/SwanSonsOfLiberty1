@@ -8,28 +8,17 @@
 <!-- <head> -->
 <div layout:fragment="head" th:remove="tag">
     <!-- Page specific head additions -->
-    <title>Spring Intro</title>
+    <title>SwanSons of Liberty</title>
 </div>
-<style>
-    @font-face {
-        font-family: Voire;
-        src: url("static/fonts/Demo_Fonts/Fontspring-DEMO-voire-black.otf") format("opentype");
-    }
-
-    @font-face {
-        font-family: Voire;
-        font-weight: bold;
-        src: url("static/fonts/Demo_Fonts/Fontspring-DEMO-voire-bold.otf") format("opentype");
-    }
-</style>
 
 <!-- <body> -->
-<div layout:fragment="body" th:remove="tag">
+<div layout:fragment="body" th:remove="tag" class="bg-primary" >
     <!-- Page specific body additions -->
-    <div class="container py-4">
-        <header class="pb-3 mb-4 border-bottom border-primary">
-            <div class="d-flex align-items-center text-dark text-decoration-none">
-                <span class="fs-4" style="font-family: Voire; font-weight: bold">Home Page - Welcome to Swanson's Class</span>
+    <div class="container py-4 bg-primary">
+        <header class="pb-3 border-primary">
+            <p class="text-light text-center">we the students who are navigating the turbulent waters of ap us history...</p>
+            <div class="d-flex align-items-center text-light text-decoration-none">
+                <span class="fs-6" style="font-size: 40.0pt; font-weight: bold; color:white; text-align: center">WELCOME YOU TO SWANSONS OF LIBERTY</span>
             </div>
         </header>
 
@@ -49,10 +38,10 @@
                         <div class="carousel-item active">
                             <div class="text-center">
                                 <img alt="" class="d-inline-block align-left"
-                                 src=""
-                                 th:src="@{/images/Swanson.JPG}"
-                                 height="400px"
-                                 width="auto">
+                                     src=""
+                                     th:src="@{/images/Swanson.JPG}"
+                                     height="400px"
+                                     width="auto">
                             </div>
                             <div class="carousel-caption d-none d-md-block">
                                 <br></br>
@@ -62,10 +51,10 @@
                         <div class="carousel-item">
                             <div class="text-center">
                                 <img alt="" class="d-inline-block align-center"
-                                 src=""
-                                 th:src="@{/images/Swanson1.jpg}"
-                                 height="400px"
-                                 width="auto">
+                                     src=""
+                                     th:src="@{/images/Swanson1.jpg}"
+                                     height="400px"
+                                     width="auto">
                             </div>
                             <div class="carousel-caption d-none d-md-block">
                                 <br></br>
@@ -75,10 +64,10 @@
                         <div class="carousel-item">
                             <div class="text-center">
                                 <img alt="" class="d-inline-block align-center"
-                                 src=""
-                                 th:src="@{/images/Swanson2.jpg}"
-                                 height="400px"
-                                 width="auto">
+                                     src=""
+                                     th:src="@{/images/Swanson2.jpg}"
+                                     height="400px"
+                                     width="auto">
                             </div>
                             <div class="carousel-caption d-none d-md-block">
                                 <br></br>
@@ -88,10 +77,10 @@
                         <div class="carousel-item">
                             <div class="text-center">
                                 <img alt="" class="d-inline-block align-center"
-                                 src=""
-                                 th:src="@{/images/Swanson3.jpg}"
-                                 height="400px"
-                                 width="auto">
+                                     src=""
+                                     th:src="@{/images/Swanson3.jpg}"
+                                     height="400px"
+                                     width="auto">
                             </div>
                             <div class="carousel-caption d-none d-md-block">
                                 <br></br>
@@ -109,7 +98,7 @@
                     </button>
                 </div>
                 <br></br>
-                <div class="text-center">
+                <div class="text-center text-light fs-2">
                     <p>Welcome to Swanson's page of tutorial notes. After each tutorial, please upload your notes onto the accurate chapter. Each chapter is password access only, so you can only access everyone's notes if you were at the tutorial.</p>
                 </div>
             </div>
@@ -118,7 +107,7 @@
 </div>
 </div>
 </div>
-    <!-- End of body content specific to page -->
+<!-- End of body content specific to page -->
 </div>
-
+</body>
 </html>
