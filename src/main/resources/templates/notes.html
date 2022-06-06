@@ -14,7 +14,7 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <div class="container py-4 bg-primary">
+    <div class="container py-4 bg-secondary">
         <!-- Page specific body additions -->
         <header class="pb-3 mb-4 border-bottom">
             <a href="#" class="d-flex align-items-center text-light text-decoration-none">
@@ -22,12 +22,12 @@
             </a>
         </header>
 
-        <div class="container py-4 text-light bg-success">
+        <div class="container py-4 text-light bg-secondary">
 
-            <h2>Notes</h2>
+            <h2>NOTES</h2>
             <div><a th:href="@{/addnote?chid={id}(id = ${chapterId} )}">Upload Notes</a></div>
             <div class="row align-items-md-stretch">
-                <table class="table">
+                <table class="table text-light">
                     <thead>
                     <tr>
                         <th>ID</th>

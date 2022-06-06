@@ -14,7 +14,7 @@
 
 <!-- <body> -->
 <div layout:fragment="body" th:remove="tag">
-    <div class="container py-4 bg-primary">
+    <div class="container py-4 bg-secondary text-light">
         <!-- Page specific body additions -->
         <header class="pb-3 mb-4 border-bottom">
             <a href="#" class="d-flex align-items-center text-light text-decoration-none">
@@ -22,17 +22,17 @@
             </a>
         </header>
 
-        <div class="container py-4 text-light bg-success">
+        <div class="container py-4 text-light bg-secondary">
 
-            <h2>Chapters</h2>
+            <h2>CHAPTERS</h2>
             <div sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/database/chaptercreate/}">Add A Chapter</a></div>
             <div class="row align-items-md-stretch">
-                <table class="table">
+                <table class="table text-light">
                     <thead>
                     <tr>
                         <th>ID</th>
 <!--                        <th>Email</th>-->
-                        <th>Chapter Name</th>
+                        <th>CHAPTER NAME</th>
 <!--                        <th>Notes</th>-->
                         <div sec:authorize="hasRole('ROLE_ADMIN')"><th>Action</th></div>
                     </tr>
